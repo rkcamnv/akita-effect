@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AKITA_TOKEN } from "..";
+import { AKITA_TOKEN, ModelLogin } from "..";
 
 @Injectable({ providedIn: 'root' })
 export class TokenService {
@@ -11,7 +11,7 @@ export class TokenService {
     }
 
     getToken() {
-        return JSON.parse(localStorage.getItem(AKITA_TOKEN) || null as any);
+        return JSON.parse(localStorage.getItem(AKITA_TOKEN) || '');
     }
 
     removeToken() {

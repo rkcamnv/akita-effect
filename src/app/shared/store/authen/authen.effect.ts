@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Actions, Effect, ofType } from "@datorama/akita-ng-effects";
 import { AuthActions } from ".";
-import { finalize, switchMap, tap } from 'rxjs/operators';
+import { finalize, map, switchMap, tap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { AKITA_ROUTER, AuthService, TokenService } from "../..";
+import { AKITA_ROUTER, AuthService, ModelLogin, TokenService } from "../..";
 import { AuthStore } from "./authen.store";
 
 @Injectable()
@@ -53,6 +53,10 @@ export class AuthenEffect {
     @Effect()
     loginSuccess$ = this.action$.pipe(
         ofType(AuthActions.AuthLoginSuccess),
-        tap(model => this.tokenService.setToken(model.token))
+        tap(model => {
+            this.tokenService.setToken(model.token);
+            this.authStore.update({ token: model.token });
+            this.router.navigateByUrl(AKITA_ROUTER.CUSTOMERS);
+        })
     );
 }

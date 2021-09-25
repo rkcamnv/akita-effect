@@ -12,8 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AkitaNgEffectsModule } from '@datorama/akita-ng-effects';
 import { AuthenEffect } from './shared/store/authen';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 
 import { ToastrModule } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 registerLocaleData(en);
 
@@ -33,6 +35,7 @@ const AKITA_EFFTECT = [
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
     AKITA_EFFTECT,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

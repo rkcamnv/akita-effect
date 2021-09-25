@@ -1,5 +1,5 @@
 export interface ModelLogin {
     username: string;
-    password: string;
+    password?: string;
     token?: string;
 }

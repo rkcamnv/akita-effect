@@ -1,1 +1,37 @@
-<p>customers works!</p>
+<ng-container *ngIf="(vm$ | async) as vm">
+    <nz-table #basicTable
+              [nzData]="vm.users"
+              [nzLoading]="vm.loading">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data">
+                <td>
+                    <span class="capitalize">{{data.name.firstname }}</span>
+                    &nbsp;
+                    <span class="capitalize">{{data.name.lastname }}</span>
+                </td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.phone }}</td>
+                <td>
+                    <span class="capitalize">{{data.address.city }}</span>
+                    <span class="capitalize">{{data.address.street }}</span>
+                </td>
+                <td>
+                    <a>View 一
+                        <span class="capitalize">{{ data.name.firstname }}</span>
+                    </a>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <a class="text-red-600">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</ng-container>
