@@ -1,0 +1,52 @@
+<div class="main">
+    <div class="login-form">
+        <h1 nz-typography>LOGIN</h1>
+        <div class="login-item">
+            <form nz-form
+                  [formGroup]="formLogin"
+                  autocomplete="off"
+                  (ngSubmit)="onSubmit()">
+                <div>
+                    <p nz-typography>
+                        Username:
+                        <span class="text-red-600">*</span>
+                    </p>
+                </div>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your username!">
+                        <nz-input-group nzPrefixIcon="user"
+                                        nzSize="large">
+                            <input type="text"
+                                   nz-input
+                                   formControlName="username"
+                                   placeholder="Username" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <div class="mt-4">
+                    <p nz-typography>
+                        Password:
+                        <span class="text-red-600">*</span>
+                    </p>
+                </div>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your password!">
+                        <nz-input-group nzPrefixIcon="lock"
+                                        nzSize="large">
+                            <input nz-input
+                                   type="password"
+                                   formControlName="password"
+                                   placeholder="Password" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <div class="mt-6">
+                    <button nz-button
+                            nzType="primary"
+                            nzSize="large">Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

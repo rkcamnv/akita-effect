@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AkitaNgEffectsModule } from '@datorama/akita-ng-effects';
-import { AuthenEffect } from './pages/shared/store/authen/authen.effect';
+import { AuthenEffect } from './shared/store/authen';
 
 registerLocaleData(en);
 
