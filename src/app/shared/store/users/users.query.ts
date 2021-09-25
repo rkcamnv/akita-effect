@@ -17,8 +17,8 @@ export class UsersQuery extends QueryEntity<UsersState> {
     users$ = combineLatest([
         this.selectAll(),
         this.selectLoading()
-    ])
-        .pipe(map(users));
+    ]).pipe(map(users));
+
 }
 
 function users([users, loading]: [ModelUser[], boolean]) {

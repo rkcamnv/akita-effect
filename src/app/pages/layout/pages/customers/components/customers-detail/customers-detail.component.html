@@ -1,0 +1,6 @@
+<ng-container *ngIf="(vm$ | async) as vm">
+    <div>
+        <span class="capitalize"> {{vm.name.firstname}}</span>
+        <span class="capitalize"> {{vm.name.lastname}}</span>
+    </div>
+</ng-container>
