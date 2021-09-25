@@ -13,23 +13,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AkitaNgEffectsModule } from '@datorama/akita-ng-effects';
 import { AuthenEffect } from './shared/store/authen';
 
+import { ToastrModule } from 'ngx-toastr';
+
 registerLocaleData(en);
 
 const AKITA_EFFTECT = [
   AkitaNgEffectsModule.forRoot([AuthenEffect])
 ];
 
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     AKITA_EFFTECT,
-    BrowserAnimationsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

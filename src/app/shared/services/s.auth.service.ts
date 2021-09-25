@@ -5,7 +5,7 @@ import { environment } from "src/environments/environment";
 import { AKITA_API, ModelLogin } from "..";
 
 @Injectable({ providedIn: 'root' })
-export class AuthenService {
+export class AuthService {
 
     constructor(
         private http: HttpClient

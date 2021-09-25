@@ -43,7 +43,9 @@
                 <div class="mt-6">
                     <button nz-button
                             nzType="primary"
-                            nzSize="large">Login
+                            nzSize="large"
+                            [nzLoading]="loading$ | async">
+                        {{(loading$ | async) ? 'Loading' : 'Login'}}
                     </button>
                 </div>
             </form>
