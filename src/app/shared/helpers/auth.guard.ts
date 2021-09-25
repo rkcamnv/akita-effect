@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
 import { Actions } from "@datorama/akita-ng-effects";
-import { AuthLoginRedirect } from "../shared/store/authen/authen.action";
+import { AuthActions } from "..";
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-        this.actions.dispatch(AuthLoginRedirect);
+        this.actions.dispatch(AuthActions.AuthLoginRedirect);
         return false;
     }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Actions } from '@datorama/akita-ng-effects';
+import { AuthActions } from 'src/app/shared';
 
 @Component({
   selector: 'app-auth',
@@ -11,6 +13,7 @@ export class AuthComponent implements OnInit {
   formLogin!: FormGroup;
 
   constructor(
+    private actions: Actions,
     private fb: FormBuilder
   ) { }
 
@@ -24,7 +27,9 @@ export class AuthComponent implements OnInit {
 
   public onSubmit() {
     if (this.formLogin.valid) {
+      const model = this.formLogin.getRawValue();
 
+      this.actions.dispatch(AuthActions.AuthLogin({ model: model }));
     }
   }
 }
