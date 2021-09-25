@@ -10,8 +10,14 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AkitaNgEffectsModule } from '@datorama/akita-ng-effects';
+import { AuthenEffect } from './pages/shared/store/authen/authen.effect';
 
 registerLocaleData(en);
+
+const AKITA_EFFTECT = [
+  AkitaNgEffectsModule.forRoot([AuthenEffect])
+];
 
 @NgModule({
   declarations: [
@@ -22,6 +28,7 @@ registerLocaleData(en);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AKITA_EFFTECT,
     BrowserAnimationsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
