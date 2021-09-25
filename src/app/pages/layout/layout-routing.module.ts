@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../helpers/auth.guard';
+import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
-  { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
-  { path: 'customers', loadChildren: () => import('./pages/customers/customers.module').then(m => m.CustomersModule) },
-  { path: '', redirectTo: 'customers', pathMatch: 'full' },
+  {
+    path: '', component: LayoutComponent, children: [
+      { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule), canActivate: [AuthGuard] },
+      { path: 'customers', loadChildren: () => import('./pages/customers/customers.module').then(m => m.CustomersModule), canActivate: [AuthGuard] },
+      { path: '', redirectTo: 'customers', pathMatch: 'full' },
+    ]
+  },
+
 ];
 
 @NgModule({
