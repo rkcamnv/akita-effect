@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ID } from '@datorama/akita';
 import { Actions } from '@datorama/akita-ng-effects';
 import { UsersActions, UsersQuery } from 'src/app/shared';
 
@@ -18,14 +19,13 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
-
-    this.vm$.subscribe(res => {
-      console.log("🚀 ~ file: customers.component.ts ~ line 23 ~ CustomersComponent ~ ngOnInit ~ res", res)
-
-    })
   }
 
   private getAllUsers() {
     this.actions.dispatch(UsersActions.UsersGetAll);
+  }
+
+  public deleteUser(id: ID) {
+    this.actions.dispatch(UsersActions.UsersDeleteOne({ id: id }));
   }
 }

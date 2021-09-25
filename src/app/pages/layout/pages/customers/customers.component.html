@@ -29,7 +29,12 @@
                         <span class="capitalize">{{ data.name.firstname }}</span>
                     </a>
                     <nz-divider nzType="vertical"></nz-divider>
-                    <a class="text-red-600">Delete</a>
+                    <a class="text-red-600"
+                       nz-popconfirm
+                       nzPopconfirmTitle="Are you sure delete this task?"
+                       (nzOnConfirm)="deleteUser(data.id)">
+                        Delete
+                    </a>
                 </td>
             </tr>
         </tbody>

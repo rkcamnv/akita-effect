@@ -8,6 +8,7 @@ import { UsersEffect } from 'src/app/shared';
 
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 const AKITA = [
   AkitaNgEffectsModule.forFeature([UsersEffect])
@@ -15,7 +16,8 @@ const AKITA = [
 
 const ANTD = [
   NzTableModule,
-  NzDividerModule
+  NzDividerModule,
+  NzPopconfirmModule
 ];
 
 @NgModule({
