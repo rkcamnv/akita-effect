@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './pages/helpers/auth.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/customers' },
-  { path: 'customers', loadChildren: () => import('./pages/customers/customers.module').then(m => m.CustomersModule) },
-  { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) }
+  { path: '', pathMatch: 'full', redirectTo: '/layout' },
+  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'layout', loadChildren: () => import('./pages/layout/layout.module').then(m => m.LayoutModule) }
 ];
 
 @NgModule({
